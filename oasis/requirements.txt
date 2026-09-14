@@ -1,0 +1,26 @@
+# Install with:  pip install -r requirements.txt
+
+# --- backend ---
+fastapi                 # the /login, /ask, /upload endpoints
+uvicorn                 # runs the FastAPI server
+python-multipart        # lets the server receive forms and uploaded files
+
+# --- retrieval ---
+chromadb                # vector database - stores and searches document chunks
+pypdf                   # reads text out of PDFs during ingestion
+
+# --- configuration ---
+pyyaml                  # reads policy.yaml (accounts, levels, classifications)
+
+# --- models ---
+ollama                  # Python client for the local Ollama service
+                        # NOTE: the Ollama APP itself is a separate download
+                        # from ollama.com - this package only talks to it
+
+# --- document output ---
+python-docx             # generates .docx deliverables
+python-pptx             # generates .pptx presentations
+openpyxl                # generates .xlsx deliverables
+
+# --- demo corpus ---
+reportlab               # only needed to regenerate the synthetic PDFs
