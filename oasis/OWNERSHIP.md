@@ -1,20 +1,4 @@
-# Who builds what — OASIS
 
-| File | Owner | Status |
-|------|-------|--------|
-| `oasis.html` | Sushil | done |
-| `server.py` | Sushil | done |
-| `policy.yaml` / `policy.py` | Sushil | done |
-| `ingest.py` / `my_rag.py` / `structured.py` | Sushil | done |
-| `agent/config.py` | **Aditi** | done — model set lives here, incl. her `qwen2.5-coder:3b` |
-| `agent/models.py` | Sushil + **Aditi** | merged: config and base64 image encoding from Aditi |
-| `agent/tools.py` + `agent/tools_impl/` | Sushil | done |
-| `agent/loop.py` | Sushil | done |
-| `agent/session.py` | Sushil | done |
-| `agent/tests/test_agent.py` | **Aditi** + Sushil | Aditi's 3 cases, plus clearance and approval |
-| **Sandboxed code execution** | **Aditi** | NOT BUILT |
-| **OCR for scans and drawings** | **Aditi** | NOT BUILT |
-| Firewall rules, real egress counters | Sushil | NOT BUILT |
 
 ## Merge decisions, and why
 
