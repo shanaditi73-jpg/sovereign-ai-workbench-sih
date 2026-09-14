@@ -24,3 +24,10 @@ openpyxl                # generates .xlsx deliverables
 
 # --- demo corpus ---
 reportlab               # only needed to regenerate the synthetic PDFs
+
+# --- paddle ocr text recognition ---
+paddleocr==3.7.0
+paddlepaddle==3.2.2
+opencv-python==4.13.0.92
+numpy==2.3.5
+PyMuPDF==1.28.2
