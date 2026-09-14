@@ -8,9 +8,10 @@ calls.
 
 ## Run it
 
-    python3 -m venv sih-venv
-    source sih-venv/bin/activate        # Windows: sih-venv\Scripts\activate
+    python -m venv sih-venv
+    Windows: sih-venv\Scripts\activate  Mac: sih-venv/bin/activate        
     pip install -r requirements.txt
+    python ingest.py
     uvicorn server:app --port 8000
 
 Then open `oasis.html` in a browser (double-click it).
