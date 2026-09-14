@@ -39,7 +39,9 @@ from policy import accounts as _accounts, allowed_levels, level_labels
 ACCOUNTS = _accounts()
 
 SESSIONS = {}
-
+# Text Recognition using Paddle OCR
+from text_recog import process_input
+from text_recog import TextRecog
 # ------------------------------------------------------------------ WIRING
 from my_rag import search, library   # real Chroma retrieval
 from agent.models import ask_model   # real Ollama
@@ -110,15 +112,27 @@ async def ask(token: str = Form(...), question: str = Form(...),
     acct = ACCOUNTS[username]
 
     image_path = None
+    document_text= None
     if file is not None:
         image_path = f"/tmp/{file.filename}"
         with open(image_path, "wb") as fh:
             fh.write(await file.read())
         log(acct["name"], f"attached {file.filename}")
+        
+        #Extracting text from the uploaded file
+        document_text= process_input(image_path)
 
     log(acct["name"], "asked a question")
+    
+    #Giving the extracted text to agent    
+    if document_text:
+        question_for_agent= (f"{question}\n\n"
+                             f"Text extracted from the attached document:\n"
+                             f"{document_text}")
+    else:
+        question_for_agent= question
 
-    res = run_agent(question=question, user=username,
+    res = run_agent(question=question_for_agent, user=username,
                     user_level=acct["clearance"], user_name=acct["name"],
                     images=[image_path] if image_path else None,
                     token=token)
