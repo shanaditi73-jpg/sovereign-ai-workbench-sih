@@ -6,13 +6,45 @@ An on-premise AI workbench for confidential industrial documents. Runs entirely
 on the plant's own hardware with open-weight models — no cloud, no external
 calls.
 
-## Run it
 
-    python -m venv sih-venv
-    Windows: sih-venv\Scripts\activate  Mac: sih-venv/bin/activate        
-    pip install -r requirements.txt
-    python ingest.py
-    uvicorn server:app --port 8000
+### Setup & Run
+
+**1. Enter the OASIS folder first**
+After cloning the repository, navigate into the `oasis` folder:
+```bash
+cd oasis
+```
+
+**2. Create a virtual environment**
+```bash
+python -m venv sih-venv
+```
+
+**3. Activate the virtual environment**
+**Windows:**
+```powershell
+sih-venv\Scripts\activate
+```
+**Mac/Linux:**
+```bash
+source sih-venv/bin/activate
+```
+
+**4. Install dependencies**
+Make sure you are still inside the `oasis` folder, then run:
+```bash
+pip install -r requirements.txt
+```
+
+**5. Ingest the documents**
+```bash
+python ingest.py
+```
+
+**6. Start the server**
+```bash
+uvicorn server:app --port 8000
+```
 
 Then open `oasis.html` in a browser (double-click it).
 
